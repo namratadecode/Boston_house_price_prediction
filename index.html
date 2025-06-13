@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Housing Price Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <Style>:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --border-color: #ced4da;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+</Style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Boston Housing Price Prediction</h1>
+
+        <form class="form-grid">
+            <label for="crim">CRIM</label> 
+            <input id="crim" name="CRIM" type="text"><br>
+            <label for="zn">ZN</label> 
+            <input id="zn" name="ZN" type="text"><br>
+            <label for="indus">INDUS</label> 
+            <input id="indus" name="INDUS" type="text"><br>
+            <label for="chas">CHAS</label> 
+            <input id="chas" name="CHAS" type="text"><br>
+            <label for="nox">NOX</label> 
+            <input id="nox" name="NOX" type="text"><br>
+            <label for="rm">RM</label> <input id="rm" name="RM" type="text"><br>
+            <label for="age">AGE</label> <input id="age" name="AGE" type="text"><br>
+            <label for="dis">DIS</label> <input id="dis" name="DIS" type="text"><br>
+            <label for="rad">RAD</label> <input id="rad" name="RAD" type="text"><br>
+            <label for="tax">TAX</label> <input id="tax" name="TAX" type="text"><br>
+            <label for="ptratio">PTRATIO</label><input id="ptratio" name="PTRATIO" type="text"><br>
+            <label for="b">B</label> <input id="b" name="B" type="text"><br>
+            <label for="lstat">LSTAT</label> <input id="lstat" name="LSTAT" type="text">
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <section class="result">
+            {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+            {% endif %}
+        </section>
+    </main>
+</body>
+
+</html>
